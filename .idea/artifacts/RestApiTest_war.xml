@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="RestApiTest:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="RestApiTest.war">
+      <element id="artifact" artifact-name="RestApiTest:war exploded" />
+    </root>
+  </artifact>
+</component>

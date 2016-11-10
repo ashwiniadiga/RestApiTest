@@ -1,4 +1,4 @@
-package com.rest.weather;
+package com.rest.city;
 
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.builder.ResponseSpecBuilder;
@@ -8,7 +8,9 @@ import com.jayway.restassured.response.Response;
 import com.rest.weather.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import static org.testng.Assert.*;
 import org.testng.annotations.Test;
+
 
 import static com.jayway.restassured.RestAssured.given;
 
@@ -25,11 +27,14 @@ public class PositiveTest {
         LOG.info("baseUrl"+ baseUrl);
         LOG.info("appId"+ appId);
         RestAssured.responseSpecification = new ResponseSpecBuilder().expectContentType(ContentType.JSON).build();
-        Response response = given().log().everything()
+        Response response = given()
+                //.log().everything()
                 .param("id", "524901").param("APPID", appId ).expect().statusCode(200).
-                        when().log().all().get(baseUrl);
+                        when()
+                //.log().all
+         .get(baseUrl);
         JsonPath jsonPath = response.body().jsonPath();
         String name = jsonPath.getString("city.name");
-        LOG.info("Name:"+ name);
+        assertEquals("Moscow", name, "Name does not match");
     }
 }

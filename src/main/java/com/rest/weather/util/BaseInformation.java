@@ -13,6 +13,7 @@ public class BaseInformation {
 
     public static String getUrl() {
         String key = "base.baseurl";
+        LOG.info(key + ": " + key);
         String url = CONFIG.getString(key);
         LOG.info(key + ": " + url);
         return url;

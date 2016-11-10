@@ -10,7 +10,6 @@
   <properties>
     <project.jdk.version>1.7</project.jdk.version>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -83,6 +82,20 @@
             <suiteXmlFile>src\test\resources\testng\city.xml</suiteXmlFile>
           </suiteXmlFiles>
           <workingDirectory>target/</workingDirectory>
+          <properties>
+            <property>
+              <name>usedefaultlisteners</name>
+              <value>false</value> <!-- disabling default listeners is optional -->
+            </property>
+            <property>
+              <name>reporter</name>
+              <value>com.rest.util.CustomReport</value>
+            </property>
+            <!--<property>-->
+              <!--<name>reporter</name>-->
+              <!--<value>listenReport.Reporter</value>-->
+            <!--</property>-->
+          </properties>
         </configuration>
       </plugin>
       <!-- Compiler plugin configures the java version to be usedfor compiling

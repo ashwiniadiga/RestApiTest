@@ -10,9 +10,6 @@ import org.testng.ISuite;
 import org.testng.ISuiteResult;
 import org.testng.ITestContext;
 
-/**
- * Created by ashwad01 on 11/5/2016.
- */
 public class CustomReport implements IReporter{
     protected static final Logger LOG = LoggerFactory.getLogger(CustomReport.class);
         @Override

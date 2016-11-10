@@ -3,12 +3,13 @@
 
 <suite name="Suite1">
     <listeners>
-        <listener class-name="com.rest.util.CustomReport" />
+        <listener class-name="com.rest.util.CustomListener" />
     </listeners>
     <test name="test1">
 
         <classes>
             <class name="com.rest.city.PositiveTest"/>
         </classes>
+
     </test>
 </suite>

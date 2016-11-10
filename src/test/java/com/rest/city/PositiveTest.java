@@ -38,7 +38,7 @@ public class PositiveTest {
 
         JsonPath jsonPath = response.body().jsonPath();
         String name = jsonPath.getString("city.name");
-        LOG.debug("Name:" + name);
+        LOG.debug("Name:" + jsonPath.getString("city.name"));
        /* String statusCode=jsonPath.getString("cod");
 
         assertThat(statusCode).isEqualTo("200");*/

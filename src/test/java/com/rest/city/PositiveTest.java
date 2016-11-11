@@ -5,14 +5,20 @@ import com.jayway.restassured.builder.ResponseSpecBuilder;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
-import com.rest.weather.util.BaseInformation;
-import groovy.util.logging.Slf4j;
+import com.rest.util.CustomListener;
+import com.rest.weather.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import static org.testng.Assert.*;
+
+
+
 import org.testng.annotations.Test;
 
 import static com.jayway.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
+
+
 
 @Slf4j
 public class PositiveTest {
@@ -20,6 +26,7 @@ public class PositiveTest {
     protected String baseUrl = BaseInformation.getUrl();
     protected String appId = BaseInformation.getAppID();
 
+   // @Listeners(CustomListener.class)
     @Test
     public void positiveTestByCity() {
         LOG.info("baseUrl"+ baseUrl);
@@ -38,13 +45,6 @@ public class PositiveTest {
 
         JsonPath jsonPath = response.body().jsonPath();
         String name = jsonPath.getString("city.name");
-        LOG.debug("Name:" + jsonPath.getString("city.name"));
-       /* String statusCode=jsonPath.getString("cod");
-
-        assertThat(statusCode).isEqualTo("200");*/
-        assertThat(name).isNotEmpty();
-
-
-
+        LOG.info("Name:"+ name);
     }
 }

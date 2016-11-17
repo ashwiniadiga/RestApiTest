@@ -9,7 +9,8 @@ import java.util.Properties;
 public class TestConfig {
 
     public Properties readFromPropertyFile() throws IOException{
-        String propertyFileName="testApplication.properties";
+       // String propertyFileName="testApplication.properties";
+        String propertyFileName="baseinformation.conf";
         Properties properties=new Properties();
         InputStream inputStream=getClass().getClassLoader().getResourceAsStream(propertyFileName);
 

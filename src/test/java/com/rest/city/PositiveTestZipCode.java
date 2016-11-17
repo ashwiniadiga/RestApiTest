@@ -6,9 +6,6 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.response.ResponseBody;
 import com.rest.helper.Base;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
 import static com.jayway.restassured.RestAssured.given;
@@ -16,15 +13,23 @@ import static com.jayway.restassured.RestAssured.given;
 
 public class PositiveTestZipCode extends Base {
 
-    private static final Logger LOG = LoggerFactory.getLogger(PositiveTestZipCode.class);
+    //private static final Logger LOG = LoggerFactory.getLogger(PositiveTestZipCode.class);
+
+
 
     @Test
     public void validZipCode(){
+        System.out.print("Base url" + baseUrl);
+        System.out.print("Base token " + appId);
+
+
         RestAssured.responseSpecification = new ResponseSpecBuilder().expectContentType(ContentType.JSON).build();
 
-        Response response = given()
-                .param("q", "Redmond")
-                .param("APPID", appId )
+        Response response;
+        response = given()
+                .queryParam("q", "Redmond").queryParam("APPID", appId)
+                /*.param("q", "Redmond")
+                .param("APPID", appId )*/
                 .log().parameters()
                 .then()
                 .log().status()
@@ -35,10 +40,8 @@ public class PositiveTestZipCode extends Base {
         name.print();
 
 
-
-
-
     }
+
 
 
 

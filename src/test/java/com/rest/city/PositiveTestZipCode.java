@@ -1,9 +1,5 @@
 package com.rest.city;
 
-import com.jayway.restassured.RestAssured;
-import com.jayway.restassured.builder.ResponseSpecBuilder;
-import com.jayway.restassured.http.ContentType;
-import com.jayway.restassured.response.Response;
 import com.jayway.restassured.response.ResponseBody;
 import com.rest.helper.Base;
 import org.testng.annotations.Test;
@@ -17,19 +13,20 @@ public class PositiveTestZipCode extends Base {
 
 
 
+
+
+
     @Test
     public void validZipCode(){
-        System.out.print("Base url" + baseUrl);
-        System.out.print("Base token " + appId);
+       /* System.out.print("Base url" + baseUrl);
+        System.out.print("Base token " + appId);*/
 
 
-        RestAssured.responseSpecification = new ResponseSpecBuilder().expectContentType(ContentType.JSON).build();
+       // RestAssured.responseSpecification = new ResponseSpecBuilder().expectContentType(ContentType.JSON).build();
+       // setupDefaultRestAssured();
 
-        Response response;
         response = given()
                 .queryParam("q", "Redmond").queryParam("APPID", appId)
-                /*.param("q", "Redmond")
-                .param("APPID", appId )*/
                 .log().parameters()
                 .then()
                 .log().status()
@@ -38,6 +35,21 @@ public class PositiveTestZipCode extends Base {
 
         ResponseBody name=response.getBody();
         name.print();
+
+
+    }
+
+    @Test
+    public void header_content_type_is_correct(){
+       // RestAssured.responseSpecification = new ResponseSpecBuilder().expectContentType(ContentType.JSON).build();
+
+       // response=given().
+        //RequestWrapper.REQUEST_WRAPPER;
+
+
+
+
+
 
 
     }
